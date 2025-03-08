@@ -23,6 +23,19 @@ export default function Education() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
   const [hoveredLogo, setHoveredLogo] = useState<number | null>(null)
 
+  // 각 교육 항목에 대한 참조 생성
+  const ref1 = useRef(null)
+  const ref2 = useRef(null)
+  const ref3 = useRef(null)
+  const ref4 = useRef(null)
+  const refs = [ref1, ref2, ref3, ref4]
+  
+  const isInView1 = useInView(ref1, { once: false, amount: 0.3 })
+  const isInView2 = useInView(ref2, { once: false, amount: 0.3 })
+  const isInView3 = useInView(ref3, { once: false, amount: 0.3 })
+  const isInView4 = useInView(ref4, { once: false, amount: 0.3 })
+  const isInView = [isInView1, isInView2, isInView3, isInView4]
+
   // 호버 상태 초기화 함수
   const resetHoverStates = () => {
     setHoveredIndex(null);
@@ -108,10 +121,6 @@ export default function Education() {
       achievement: "전국 학생 음악 콩쿠르 입상"
     }
   ]
-
-  // 각 교육 항목에 대한 참조 생성
-  const refs = educations.map(() => React.useRef(null))
-  const isInView = refs.map(ref => useInView(ref, { once: false, amount: 0.3 }))
 
   // 모달 애니메이션 설정
   const modalVariants = {
