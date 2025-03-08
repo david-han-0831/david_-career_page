@@ -16,12 +16,15 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://david-han.vercel.app'),
+  metadataBase: new URL('https://david-career-page.vercel.app'),
   title: "David Han | Full Stack Developer",
   description: "웹/앱 풀스택 개발자 한동윤의 포트폴리오입니다.",
   keywords: ["Next.js", "TypeScript", "React", "풀스택", "개발자", "포트폴리오"],
   authors: [{ name: "David Han" }],
   creator: "David Han",
+  verification: {
+    google: 'FTweV45T7VjFNZsMflJxmLXWWh_FzjEynb1xuSoON1U',
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
