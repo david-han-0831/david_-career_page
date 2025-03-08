@@ -5,6 +5,7 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button"
 import { ExternalLink, Github, FolderKanban } from "lucide-react"
 import Image from "next/image"
+import { motion } from "framer-motion"
 
 interface Project {
   id: number
@@ -23,134 +24,217 @@ export default function Portfolio() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "문화예술 플랫폼 '아트스테이지'",
-      description: "문화예술인들을 위한 앱 및 웹 플랫폼",
-      image: "/placeholder.svg?height=600&width=800",
-      details:
-        "문화예술인들을 위한 앱 및 웹 플랫폼으로, 회원관리, 공연/행사 관리, 지원사업 데이터 크롤링 기능을 제공합니다. 2024년 서울 청년창업사관학교 입교기업으로 선정되었으며, 서비스 기획부터 프로젝트 매니저, 데이터 수집 및 관리, 프론트 & 백엔드 개발까지 전반적인 개발을 담당했습니다.",
-      technologies: ["Java", "Spring Boot", "JavaScript", "React", "MySQL", "Python"],
+      title: "AI 기반 추천 시스템",
+      description: "사용자 행동 패턴을 분석하여 개인화된 콘텐츠를 추천하는 시스템",
+      image: "/img/portfolio/project1.jpg",
+      details: "머신러닝 알고리즘을 활용하여 사용자의 행동 패턴을 분석하고, 이를 기반으로 개인화된 콘텐츠를 추천하는 시스템을 개발했습니다. 협업 필터링과 콘텐츠 기반 필터링을 결합한 하이브리드 접근 방식을 사용하여 추천 정확도를 높였습니다.",
+      technologies: ["Python", "TensorFlow", "Flask", "React", "MongoDB"],
+      demoUrl: "https://example.com",
+      githubUrl: "https://github.com"
     },
     {
       id: 2,
-      title: "AI 개발자 프로젝트 매칭 플랫폼",
-      description: "AI 개발자와 프로젝트를 매칭하는 앱 플랫폼",
-      image: "/placeholder.svg?height=600&width=800",
-      details:
-        "AI 개발자와 프로젝트를 매칭하는 앱 플랫폼으로, 프로젝트 매니저 역할과 프론트 & 백엔드 개발을 담당했습니다. 개발자 프로필 관리, 프로젝트 등록 및 매칭, 커뮤니케이션 기능 등을 구현했습니다.",
-      technologies: ["JavaScript", "React", "Java", "Spring Boot", "MySQL"],
+      title: "실시간 채팅 애플리케이션",
+      description: "WebSocket을 활용한 실시간 채팅 및 협업 플랫폼",
+      image: "/img/portfolio/project2.jpg",
+      details: "WebSocket 기술을 활용하여 실시간 메시징이 가능한 채팅 애플리케이션을 개발했습니다. 사용자 인증, 채팅방 생성, 파일 공유 등의 기능을 구현했으며, 메시지 전송 지연을 최소화하기 위한 최적화 작업을 수행했습니다.",
+      technologies: ["Node.js", "Socket.io", "Express", "React", "MongoDB"],
+      demoUrl: "https://example.com",
+      githubUrl: "https://github.com"
     },
     {
       id: 3,
-      title: "맞춤형 AI 챗봇 솔루션",
-      description: "기업 고객 응대를 위한 맞춤형 AI 챗봇 솔루션",
-      image: "/placeholder.svg?height=600&width=800",
-      details:
-        "기업 고객 응대를 위한 맞춤형 AI 챗봇 솔루션으로, 상담내용 수집부, 후처리 자동화 처리부, 동의어 처리부, 오류재학습부 등 다양한 모듈을 통해 고객의 요구를 효율적으로 대응하고 챗봇 성능을 지속적으로 개선할 수 있는 기능을 포함합니다. 특허 출원(특허-2023-0130063)을 통해 회사의 벤처기업인증, 기술보증기금 자금 확보의 성과를 이루어냈습니다.",
-      technologies: ["Python", "TensorFlow", "FastAPI", "React", "MySQL"],
-    },
-    {
-      id: 4,
-      title: "비대면 진료 앱 및 CRM",
-      description: "비대면 진료 앱 및 병원 CRM 시스템",
-      image: "/placeholder.svg?height=600&width=800",
-      details:
-        "비대면 진료 앱 및 병원 CRM 시스템으로, 환자관리, 예약관리, 접수, 상담, 매출, 통계 기능을 제공합니다. 프로젝트 매니저 역할과 백엔드 개발을 담당했으며, 병원 업무 프로세스를 효율화하고 환자 경험을 개선했습니다.",
-      technologies: ["Java", "Spring Boot", "JavaScript", "Flutter", "MySQL"],
-    },
+      title: "건강 관리 모바일 앱",
+      description: "사용자의 건강 데이터를 추적하고 분석하는 모바일 애플리케이션",
+      image: "/img/portfolio/project3.jpg",
+      details: "사용자의 운동, 식단, 수면 등 건강 관련 데이터를 추적하고 분석하는 모바일 애플리케이션을 개발했습니다. 건강 데이터 시각화, 목표 설정 및 알림 기능을 구현하여 사용자가 건강한 생활 습관을 유지할 수 있도록 도왔습니다.",
+      technologies: ["Flutter", "Firebase", "Node.js", "Express", "MongoDB"],
+      demoUrl: "https://example.com",
+      githubUrl: "https://github.com"
+    }
   ]
 
+  const container = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  }
+
+  const item = {
+    hidden: { opacity: 0, y: 30 },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 100,
+        damping: 15
+      } 
+    }
+  }
+
   return (
-    <section id="portfolio" className="py-24 px-6 md:px-10 lg:px-20 bg-lightGray">
+    <section id="portfolio" className="py-24 px-6 md:px-10 lg:px-20 bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center gap-3 mb-16 justify-center">
+        <motion.div 
+          className="flex items-center gap-3 mb-16 justify-center"
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+        >
           <FolderKanban className="w-8 h-8 text-softBlue" />
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">Portfolio</h2>
-        </div>
+        </motion.div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div 
+          className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
           {projects.map((project) => (
-            <div
+            <motion.div
               key={project.id}
-              className="bg-white rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-shadow cursor-pointer"
+              variants={item}
+              className="group bg-gradient-to-r from-lightGray/20 to-lightGray/10 backdrop-blur-sm rounded-2xl overflow-hidden shadow-soft hover:shadow-hover transition-all cursor-pointer border border-lightGray/30"
+              whileHover={{ 
+                scale: 1.03,
+                transition: { duration: 0.3 }
+              }}
               onClick={() => setSelectedProject(project)}
             >
-              <div className="h-48 relative">
-                <Image src={project.image || "/placeholder.svg"} alt={project.title} fill className="object-cover" />
+              <div className="h-48 relative overflow-hidden">
+                <Image 
+                  src={project.image || "/placeholder.svg"} 
+                  alt={project.title} 
+                  fill 
+                  className="object-cover transition-transform duration-500 group-hover:scale-110" 
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
+                  <p className="text-white font-medium">{project.description}</p>
+                </div>
               </div>
               <div className="p-6">
                 <h3 className="text-xl font-semibold text-textPrimary mb-2">{project.title}</h3>
                 <p className="text-darkGray mb-4 line-clamp-2">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.technologies.slice(0, 3).map((tech, index) => (
-                    <span key={index} className="px-2 py-1 bg-lightGray text-darkGray text-xs rounded-full">
+                    <motion.span 
+                      key={index} 
+                      className="px-2 py-1 bg-white/60 text-darkGray text-xs rounded-full border border-lightGray/30"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: index * 0.1 }}
+                    >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                   {project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-lightGray text-darkGray text-xs rounded-full">
+                    <motion.span 
+                      className="px-2 py-1 bg-white/60 text-darkGray text-xs rounded-full border border-lightGray/30"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.3 }}
+                    >
                       +{project.technologies.length - 3}
-                    </span>
+                    </motion.span>
                   )}
                 </div>
                 <Button
                   variant="ghost"
-                  className="text-softBlue p-0 h-auto hover:bg-transparent hover:text-softBlue/80"
+                  className="text-softBlue p-0 h-auto hover:bg-transparent hover:text-softBlue/80 group/btn"
                 >
-                  자세히 보기
+                  자세히 보기 
+                  <motion.span 
+                    className="inline-block ml-1"
+                    initial={{ x: 0 }}
+                    whileHover={{ x: 3 }}
+                  >
+                    →
+                  </motion.span>
                 </Button>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         <Dialog open={!!selectedProject} onOpenChange={(open) => !open && setSelectedProject(null)}>
-          <DialogContent className="sm:max-w-[700px]">
+          <DialogContent className="sm:max-w-[700px] max-h-[90vh] overflow-y-auto">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-textPrimary">{selectedProject?.title}</DialogTitle>
-              <DialogDescription className="text-darkGray">{selectedProject?.description}</DialogDescription>
+              <DialogTitle className="text-2xl font-bold flex items-center gap-2">
+                <FolderKanban className="w-6 h-6 text-softBlue" />
+                {selectedProject?.title}
+              </DialogTitle>
+              <DialogDescription className="text-base text-darkGray">
+                {selectedProject?.description}
+              </DialogDescription>
             </DialogHeader>
             <div className="mt-4 space-y-6">
-              <div className="h-64 relative rounded-xl overflow-hidden">
-                {selectedProject && (
+              <div className="relative h-64 md:h-80 rounded-xl overflow-hidden">
+                {selectedProject?.image && (
                   <Image
-                    src={selectedProject.image || "/placeholder.svg"}
+                    src={selectedProject.image}
                     alt={selectedProject.title}
                     fill
                     className="object-cover"
                   />
                 )}
               </div>
-              <div>
-                <p className="text-darkGray mb-4">{selectedProject?.details}</p>
-                <div className="flex flex-wrap gap-2 mb-6">
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                <h4 className="text-lg font-semibold mb-3">프로젝트 개요</h4>
+                <p className="text-darkGray">{selectedProject?.details}</p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 }}
+              >
+                <h4 className="text-lg font-semibold mb-3">사용 기술</h4>
+                <div className="flex flex-wrap gap-2">
                   {selectedProject?.technologies.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-lightGray text-darkGray text-sm rounded-full">
+                    <motion.span
+                      key={index}
+                      className="px-3 py-1.5 bg-lightGray/40 text-darkGray text-sm rounded-full"
+                      initial={{ opacity: 0, scale: 0.8 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: 0.4 + index * 0.1 }}
+                    >
                       {tech}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
-                <div className="flex flex-wrap gap-4">
-                  {selectedProject?.demoUrl && (
-                    <a
-                      href={selectedProject.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-softBlue hover:underline"
-                    >
-                      <ExternalLink className="w-4 h-4" /> 데모 보기
-                    </a>
-                  )}
-                  {selectedProject?.githubUrl && (
-                    <a
-                      href={selectedProject.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 text-textPrimary hover:underline"
-                    >
-                      <Github className="w-4 h-4" /> 소스 코드
-                    </a>
-                  )}
-                </div>
+              </motion.div>
+
+              <div className="flex flex-wrap gap-4 mt-6">
+                {selectedProject?.demoUrl && (
+                  <Button
+                    className="bg-softBlue text-white hover:bg-softBlue/90 flex items-center gap-2"
+                    onClick={() => window.open(selectedProject.demoUrl, "_blank")}
+                  >
+                    <ExternalLink className="w-4 h-4" /> 데모 보기
+                  </Button>
+                )}
+                {selectedProject?.githubUrl && (
+                  <Button
+                    variant="outline"
+                    className="border-softBlue text-softBlue hover:bg-softBlue/10 flex items-center gap-2"
+                    onClick={() => window.open(selectedProject.githubUrl, "_blank")}
+                  >
+                    <Github className="w-4 h-4" /> 코드 보기
+                  </Button>
+                )}
               </div>
             </div>
           </DialogContent>

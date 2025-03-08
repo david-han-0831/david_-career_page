@@ -140,7 +140,7 @@ export default function SkillSet() {
   const categories = ["Language", "Frontend", "Backend", "App Development", "Database & Cloud", "Development Tools", "AI & ML"]
 
   return (
-    <section id="skills" className="py-24 px-6 md:px-10 lg:px-20 bg-lightGray">
+    <section id="skills" className="py-24 md:py-32 px-6 md:px-10 lg:px-20 bg-gradient-to-b from-lightGray/40 to-lightGray/60">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-3 mb-16 justify-center">
           <Code2 className="w-8 h-8 text-softBlue" />

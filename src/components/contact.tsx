@@ -65,7 +65,7 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-24 px-6 md:px-10 lg:px-20">
+    <section id="contact" className="py-24 px-6 md:px-10 lg:px-20 bg-gradient-to-b from-lightGray/40 to-lightGray/60">
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center gap-3 mb-16 justify-center">
           <PhoneCall className="w-8 h-8 text-softBlue" />

@@ -1,7 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
-import { ArrowDown, User } from "lucide-react"
+import { User } from "lucide-react"
 import { event as gaEvent } from '@/lib/gtag'
 
 export default function Hero() {
@@ -26,15 +26,15 @@ export default function Hero() {
   }
 
   return (
-    <section id="about" className="min-h-screen flex flex-col justify-center items-center px-6 md:px-10 lg:px-20 pt-20">
+    <section id="about" className="min-h-[calc(100vh-80px)] flex flex-col justify-start md:justify-center items-center px-6 md:px-10 lg:px-20 pt-24 md:pt-20 pb-12 md:pb-32 bg-white">
       <div className="max-w-7xl w-full mx-auto text-center md:text-left">
-        <div className="flex items-center gap-3 mb-16 justify-center">
+        <div className="flex items-center gap-3 mb-8 md:mb-16 justify-center">
           <User className="w-8 h-8 text-softBlue" />
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">About</h2>
         </div>
-        <div className="grid md:grid-cols-5 gap-8 items-center">
+        <div className="grid md:grid-cols-5 gap-8 md:gap-8 items-center">
           <div className="order-2 md:order-1 md:col-span-3">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gradient mb-8">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gradient mb-6 md:mb-8">
               Web/App
               <br />
               Full Stack Developer
@@ -86,9 +86,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-      </div>
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="text-softBlue w-6 h-6" />
       </div>
     </section>
   )
