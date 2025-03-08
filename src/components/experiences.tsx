@@ -22,72 +22,71 @@ export default function Experiences() {
     {
       id: 1,
       period: "2022.03 ~ 현재",
-      company: "ABC 테크놀로지",
-      role: "시니어 풀스택 개발자",
-      description: "웹 및 모바일 애플리케이션 개발 및 유지보수",
+      company: "콜론비",
+      role: "대표",
+      description: "회사 운영 전반의 업무 수행 및 프로젝트 매니저 역할과 개발 병행",
       details: [
-        "Next.js와 TypeScript를 활용한 웹 애플리케이션 개발",
-        "React Native를 이용한 크로스 플랫폼 모바일 앱 개발",
-        "FastAPI 기반 백엔드 서비스 구축 및 최적화",
-        "CI/CD 파이프라인 구축 및 DevOps 프로세스 개선",
-        "주니어 개발자 멘토링 및 기술 교육 진행",
+        "회사 운영 전반의 업무 수행: 사업 계획 수립 및 실행, 재무 관리, 직원 관리 등 회사의 모든 주요 업무를 총괄",
+        "프로젝트 매니저 역할과 개발 병행: 개발 진행을 관리하고 팀원들과 소통하여 프로젝트의 목표를 달성",
+        "맞춤형 AI 챗봇 솔루션 개발 참여 및 특허 출원: 솔루션 개발 및 테스트 참여",
+        "문화예술 플랫폼 '아트스테이지' 개발: 2023년 문화예술인들을 위한 플랫폼 기획 및 개발, 2024년 서울 청년창업사관학교 입교기업으로 선정",
+        "AI 개발자 프로젝트 매칭 플랫폼, 비대면 진료 앱 및 CRM, 세무 자동화 프로그램 등 다양한 프로젝트 수행"
       ],
-      technologies: ["Next.js", "TypeScript", "React Native", "FastAPI", "Docker", "AWS"],
+      technologies: ["Java", "Spring Boot", "JavaScript", "React", "Next.js", "MySQL", "Python", "Flutter"],
     },
     {
       id: 2,
-      period: "2020.01 ~ 2022.02",
-      company: "XYZ 소프트웨어",
-      role: "프론트엔드 개발자",
-      description: "사용자 중심 웹 인터페이스 설계 및 구현",
+      period: "2021.06 ~ 2022.05",
+      company: "레버티",
+      role: "사원/팀원",
+      description: "병원 CRM 프론트 및 백엔드 개발, 데이터 수집 프로그램 유지보수",
       details: [
-        "React와 Redux를 활용한 SPA 개발",
-        "UI/UX 개선 및 사용자 경험 최적화",
-        "반응형 웹 디자인 구현",
-        "성능 최적화 및 웹 접근성 향상",
-        "디자인 시스템 구축 및 컴포넌트 라이브러리 개발",
+        "성형외과 CRM 시스템 개발: 환자관리, 예약관리, 접수, 상담, 매출, 통계",
+        "서비스 기획, 설계, 프론트 및 백엔드 개발 담당",
+        "데이터 수집 앱 유지보수: 회원관리, 댓글, 코멘트, 데이터 관리",
+        "프로젝트 일정 관리 보조, 데이터 수집 및 CRM 백엔드 개발"
       ],
-      technologies: ["React", "Redux", "JavaScript", "SCSS", "Webpack", "Jest"],
+      technologies: ["JavaScript", "Nest.js", "Vue.js", "Node.js", "MySQL"],
     },
     {
       id: 3,
-      period: "2018.06 ~ 2019.12",
-      company: "스타트업 인큐베이터",
-      role: "주니어 개발자",
-      description: "다양한 스타트업 프로젝트 참여 및 기술 지원",
+      period: "2015 ~ 2020",
+      company: "프리랜서 개발자",
+      role: "백엔드 개발자",
+      description: "다양한 소프트웨어 프로젝트 기획, 설계, 백엔드 구현, 배포 및 운영",
       details: [
-        "여러 스타트업의 MVP 개발 지원",
-        "웹 애플리케이션 프론트엔드 개발",
-        "Node.js 기반 백엔드 API 개발",
-        "데이터베이스 설계 및 구현",
-        "애자일 개발 방법론 실무 적용",
+        "물류 재고 관리 시스템 개발 (2018.09 ~ 2019.06): 회원관리, 상품관리, 매출, 통계",
+        "밀키트 판매 사이트 개발 및 유지보수 (2017.07 ~ 2018.06): 회원관리, 상품관리, 결제",
+        "중고거래 웹 서비스 개발 (2016.09 ~ 2017.05): 회원관리, 상품관리",
+        "학생 관리 시스템 개발 및 유지보수 (2015.03 ~ 2016.06): 학생 출결 관리, 교육 자료 크롤링, Excel / PPT 자동화",
+        "고객 요구사항 분석, 전체 프로젝트 관리 및 백엔드 개발"
       ],
-      technologies: ["JavaScript", "Node.js", "Express", "MongoDB", "HTML/CSS"],
+      technologies: ["Java", "Spring Boot", "JavaScript", "jQuery", "MySQL", "Python"],
     },
   ]
 
   return (
     <section id="experiences" className="py-24 px-6 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1D1D1F] mb-16 text-center">Experiences</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-16 text-center">Experiences</h2>
 
         <div className="space-y-8">
           {experiences.map((exp) => (
             <div
               key={exp.id}
-              className="flex flex-col md:flex-row gap-6 p-6 rounded-2xl hover:bg-[#F5F5F7] transition-colors cursor-pointer"
+              className="flex flex-col md:flex-row gap-6 p-6 rounded-2xl hover:bg-lightGray transition-colors cursor-pointer"
               onClick={() => setSelectedExperience(exp)}
             >
               <div className="md:w-1/4">
-                <p className="text-[#6E6E73] font-medium">{exp.period}</p>
+                <p className="text-darkGray font-medium">{exp.period}</p>
               </div>
               <div className="md:w-3/4">
-                <h3 className="text-xl font-semibold text-[#1D1D1F] mb-2">{exp.company}</h3>
-                <p className="text-[#1D1D1F] font-medium mb-2">{exp.role}</p>
-                <p className="text-[#6E6E73] mb-4">{exp.description}</p>
+                <h3 className="text-xl font-semibold text-textPrimary mb-2">{exp.company}</h3>
+                <p className="text-textPrimary font-medium mb-2">{exp.role}</p>
+                <p className="text-darkGray mb-4">{exp.description}</p>
                 <Button
                   variant="ghost"
-                  className="text-[#007AFF] p-0 h-auto hover:bg-transparent hover:text-[#007AFF]/80 flex items-center"
+                  className="text-softBlue p-0 h-auto hover:bg-transparent hover:text-softBlue/80 flex items-center"
                   onClick={(e) => {
                     e.stopPropagation()
                     setSelectedExperience(exp)
@@ -103,28 +102,28 @@ export default function Experiences() {
         <Dialog open={!!selectedExperience} onOpenChange={(open) => !open && setSelectedExperience(null)}>
           <DialogContent className="sm:max-w-[600px]">
             <DialogHeader>
-              <DialogTitle className="text-2xl font-bold text-[#1D1D1F]">{selectedExperience?.company}</DialogTitle>
-              <DialogDescription className="text-[#6E6E73]">
+              <DialogTitle className="text-2xl font-bold text-textPrimary">{selectedExperience?.company}</DialogTitle>
+              <DialogDescription className="text-darkGray">
                 {selectedExperience?.period} · {selectedExperience?.role}
               </DialogDescription>
             </DialogHeader>
             <div className="mt-4 space-y-6">
               <div>
-                <h4 className="text-lg font-medium text-[#1D1D1F] mb-3">주요 업무</h4>
+                <h4 className="text-lg font-medium text-textPrimary mb-3">주요 업무</h4>
                 <ul className="space-y-2">
                   {selectedExperience?.details.map((detail, index) => (
-                    <li key={index} className="text-[#6E6E73] flex items-start">
-                      <span className="text-[#007AFF] mr-2">•</span>
+                    <li key={index} className="text-darkGray flex items-start">
+                      <span className="text-softBlue mr-2">•</span>
                       {detail}
                     </li>
                   ))}
                 </ul>
               </div>
               <div>
-                <h4 className="text-lg font-medium text-[#1D1D1F] mb-3">사용 기술</h4>
+                <h4 className="text-lg font-medium text-textPrimary mb-3">사용 기술</h4>
                 <div className="flex flex-wrap gap-2">
                   {selectedExperience?.technologies.map((tech, index) => (
-                    <span key={index} className="px-3 py-1 bg-[#F5F5F7] text-[#6E6E73] text-sm rounded-full">
+                    <span key={index} className="px-3 py-1 bg-lightGray text-darkGray text-sm rounded-full">
                       {tech}
                     </span>
                   ))}

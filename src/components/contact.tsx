@@ -40,12 +40,12 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 px-6 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-[#1D1D1F] mb-16 text-center">Contact</h2>
+        <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-16 text-center">Contact</h2>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
           <div>
-            <h3 className="text-2xl font-semibold text-[#1D1D1F] mb-6">프로젝트 문의</h3>
-            <p className="text-[#6E6E73] mb-8">
+            <h3 className="text-2xl font-semibold text-textPrimary mb-6">프로젝트 문의</h3>
+            <p className="text-darkGray mb-8">
               새로운 프로젝트나 협업에 관심이 있으신가요? 메시지를 남겨주시면 빠른 시일 내에 답변 드리겠습니다.
             </p>
 
@@ -57,7 +57,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="이름"
                   required
-                  className="h-12 rounded-xl border-[#D2D2D7] focus-visible:ring-[#007AFF]"
+                  className="h-12 rounded-xl border-mediumGray focus-visible:ring-softBlue"
                 />
               </div>
               <div>
@@ -68,7 +68,7 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="이메일"
                   required
-                  className="h-12 rounded-xl border-[#D2D2D7] focus-visible:ring-[#007AFF]"
+                  className="h-12 rounded-xl border-mediumGray focus-visible:ring-softBlue"
                 />
               </div>
               <div>
@@ -78,13 +78,13 @@ export default function Contact() {
                   onChange={handleChange}
                   placeholder="메시지"
                   required
-                  className="min-h-[150px] rounded-xl border-[#D2D2D7] focus-visible:ring-[#007AFF]"
+                  className="min-h-[150px] rounded-xl border-mediumGray focus-visible:ring-softBlue"
                 />
               </div>
               <Button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-[#1D1D1F] text-white hover:opacity-80 rounded-xl h-12 px-8 w-full"
+                className="bg-softBlue text-white hover:opacity-90 rounded-xl h-12 px-8 w-full"
               >
                 {isSubmitting ? (
                   <span className="flex items-center">
@@ -120,22 +120,22 @@ export default function Contact() {
           </div>
 
           <div>
-            <h3 className="text-2xl font-semibold text-[#1D1D1F] mb-6">연락처</h3>
-            <p className="text-[#6E6E73] mb-8">
+            <h3 className="text-2xl font-semibold text-textPrimary mb-6">연락처</h3>
+            <p className="text-darkGray mb-8">
               아래 채널을 통해서도 연락하실 수 있습니다. 소셜 미디어에서도 활발히 활동하고 있으니 팔로우해 주세요.
             </p>
 
             <div className="space-y-6">
               <a
-                href="mailto:contact@example.com"
-                className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F5F5F7] transition-colors"
+                href="mailto:hdy20201004@gmail.com"
+                className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1D1D1F] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
                   <Mail className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E73]">이메일</p>
-                  <p className="text-[#1D1D1F] font-medium">contact@example.com</p>
+                  <p className="text-sm text-darkGray">이메일</p>
+                  <p className="text-textPrimary font-medium">hdy20201004@gmail.com</p>
                 </div>
               </a>
 
@@ -143,14 +143,14 @@ export default function Contact() {
                 href="https://github.com/username"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F5F5F7] transition-colors"
+                className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1D1D1F] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
                   <Github className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E73]">GitHub</p>
-                  <p className="text-[#1D1D1F] font-medium">github.com/username</p>
+                  <p className="text-sm text-darkGray">GitHub</p>
+                  <p className="text-textPrimary font-medium">github.com/username</p>
                 </div>
               </a>
 
@@ -158,14 +158,14 @@ export default function Contact() {
                 href="https://instagram.com/username"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F5F5F7] transition-colors"
+                className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1D1D1F] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
                   <Instagram className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E73]">Instagram</p>
-                  <p className="text-[#1D1D1F] font-medium">@username</p>
+                  <p className="text-sm text-darkGray">Instagram</p>
+                  <p className="text-textPrimary font-medium">@username</p>
                 </div>
               </a>
 
@@ -173,14 +173,14 @@ export default function Contact() {
                 href="https://linkedin.com/in/username"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-4 p-4 rounded-xl hover:bg-[#F5F5F7] transition-colors"
+                className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-[#1D1D1F] flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
                   <Linkedin className="w-5 h-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-[#6E6E73]">LinkedIn</p>
-                  <p className="text-[#1D1D1F] font-medium">linkedin.com/in/username</p>
+                  <p className="text-sm text-darkGray">LinkedIn</p>
+                  <p className="text-textPrimary font-medium">linkedin.com/in/username</p>
                 </div>
               </a>
             </div>

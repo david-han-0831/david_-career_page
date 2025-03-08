@@ -1,74 +1,73 @@
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
+  darkMode: 'media',
   content: [
-    "./pages/**/*.{ts,tsx}",
-    "./components/**/*.{ts,tsx}",
-    "./app/**/*.{ts,tsx}",
-    "./src/**/*.{ts,tsx}",
-    "*.{js,ts,jsx,tsx,mdx}",
+    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
     extend: {
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        // 기본 색상
+        border: "#E5E7EB",
+        input: "#E5E7EB",
+        ring: "#5E8EEB",
+        background: "#F9F9FB",
+        foreground: "#3A3A3C",
+        
+        // 주요 색상
         primary: {
-          DEFAULT: "#1D1D1F",
+          DEFAULT: "#5E8EEB",
           foreground: "#FFFFFF",
         },
         secondary: {
-          DEFAULT: "#F5F5F7",
-          foreground: "#1D1D1F",
+          DEFAULT: "#F0F2F5",
+          foreground: "#3A3A3C",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "#EF4444",
+          foreground: "#FFFFFF",
         },
         muted: {
-          DEFAULT: "#F5F5F7",
-          foreground: "#6E6E73",
+          DEFAULT: "#F0F2F5",
+          foreground: "#6B7280",
         },
         accent: {
-          DEFAULT: "#F5F5F7",
-          foreground: "#1D1D1F",
+          DEFAULT: "#FF7F7F",
+          foreground: "#FFFFFF",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "#FFFFFF",
+          foreground: "#3A3A3C",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "#FFFFFF",
+          foreground: "#3A3A3C",
         },
+        
+        // 커스텀 색상
+        softBlue: "#5E8EEB",
+        lightCoral: "#FF7F7F",
+        softTurquoise: "#64D2FF",
+        mintGreen: "#5ECCA9",
+        offWhite: "#F9F9FB",
+        lightGray: "#F0F2F5",
+        mediumGray: "#E5E7EB",
+        darkGray: "#6B7280",
+        textPrimary: "#3A3A3C",
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        'xl': '0.75rem',
+        '2xl': '1rem',
       },
-      keyframes: {
-        "accordion-down": {
-          from: { height: 0 },
-          to: { height: "var(--radix-accordion-content-height)" },
-        },
-        "accordion-up": {
-          from: { height: "var(--radix-accordion-content-height)" },
-          to: { height: 0 },
-        },
+      boxShadow: {
+        'soft': '0 4px 20px rgba(0, 0, 0, 0.05)',
+        'hover': '0 8px 30px rgba(0, 0, 0, 0.08)',
       },
-      animation: {
-        "accordion-down": "accordion-down 0.2s ease-out",
-        "accordion-up": "accordion-up 0.2s ease-out",
+      gradientColorStops: {
+        'blue-start': '#5E8EEB',
+        'blue-end': '#64D2FF',
       },
     },
   },

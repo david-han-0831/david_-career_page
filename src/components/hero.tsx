@@ -21,27 +21,32 @@ export default function Hero() {
   return (
     <section id="about" className="min-h-screen flex flex-col justify-center items-center px-6 md:px-10 lg:px-20 pt-20">
       <div className="max-w-7xl w-full mx-auto text-center md:text-left">
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          <div className="order-2 md:order-1">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-[#1D1D1F] mb-6">
+        <div className="grid md:grid-cols-5 gap-8 items-center">
+          <div className="order-2 md:order-1 md:col-span-3">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gradient mb-8">
               Web/App
               <br />
               Full Stack Developer
             </h1>
-            <p className="text-xl text-[#6E6E73] mb-8 max-w-xl">
-              사용자 경험을 중심으로 웹과 앱을 디자인하고 개발합니다. 최신 기술 스택을 활용한 풀스택 개발 역량을 갖추고
-              있습니다.
-            </p>
+            <div className="text-lg md:text-xl lg:text-2xl text-darkGray mb-10 max-w-2xl space-y-6">
+              <p className="leading-relaxed">
+                <span className="font-bold text-softBlue">사용자 경험을 중심</span>으로 웹과 앱을 디자인하고 개발합니다.
+              </p>
+              
+              <div className="leading-relaxed">
+                다양한 산업 분야에서의 <span className="font-bold">프론트 & 백엔드 개발</span> 및 <span className="font-bold">프로젝트 관리 경험</span>을 바탕으로, IT 솔루션 <span className="font-semibold underline decoration-softBlue decoration-2 underline-offset-4">기획부터 설계, 개발, 배포</span>까지 전반적인 개발 업무를 수행합니다.
+              </div>
+            </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
               <Button
                 onClick={scrollToContact}
-                className="bg-[#1D1D1F] text-white hover:opacity-80 rounded-xl h-12 px-8"
+                className="bg-softBlue text-white hover:opacity-90 rounded-xl h-12 px-8 text-base"
               >
                 연락하기
               </Button>
               <Button
                 variant="outline"
-                className="border-[#D2D2D7] text-[#1D1D1F] hover:bg-[#F5F5F7] rounded-xl h-12 px-8"
+                className="border-mediumGray text-textPrimary hover:bg-lightGray rounded-xl h-12 px-8 text-base"
                 onClick={() => {
                   const skillsSection = document.getElementById("skills")
                   if (skillsSection) {
@@ -60,11 +65,11 @@ export default function Hero() {
               </Button>
             </div>
           </div>
-          <div className="order-1 md:order-2 flex justify-center">
-            <div className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 bg-[#F5F5F7] rounded-full overflow-hidden">
+          <div className="order-1 md:order-2 md:col-span-2 flex justify-center">
+            <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 bg-lightGray rounded-full overflow-hidden shadow-soft">
               <img
                 src="/placeholder.svg?height=400&width=400"
-                alt="Developer Profile"
+                alt="한동윤 프로필"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -72,7 +77,7 @@ export default function Hero() {
         </div>
       </div>
       <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ArrowDown className="text-[#1D1D1F] w-6 h-6" />
+        <ArrowDown className="text-softBlue w-6 h-6" />
       </div>
     </section>
   )

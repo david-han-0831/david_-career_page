@@ -39,53 +39,59 @@ export default function Header() {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-6 md:px-10 lg:px-20",
-        isScrolled ? "bg-white/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6",
+        isScrolled ? "bg-offWhite/90 backdrop-blur-md shadow-sm py-4" : "bg-transparent py-6",
       )}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold text-[#1D1D1F]">
-          홍길동
+        <Link href="/" className="text-xl font-bold text-textPrimary">
+          한동윤
         </Link>
 
         {isMobile ? (
-          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-[#1D1D1F]">
+          <Button variant="ghost" size="icon" onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-textPrimary">
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </Button>
         ) : (
           <nav className="flex items-center space-x-8">
             <button
               onClick={() => scrollToSection("about")}
-              className="text-[#1D1D1F] hover:text-[#007AFF] transition-colors"
+              className="text-textPrimary hover:text-softBlue transition-colors"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection("skills")}
-              className="text-[#1D1D1F] hover:text-[#007AFF] transition-colors"
+              className="text-textPrimary hover:text-softBlue transition-colors"
             >
               Skill Set
             </button>
             <button
+              onClick={() => scrollToSection("education")}
+              className="text-textPrimary hover:text-softBlue transition-colors"
+            >
+              Education
+            </button>
+            <button
               onClick={() => scrollToSection("experiences")}
-              className="text-[#1D1D1F] hover:text-[#007AFF] transition-colors"
+              className="text-textPrimary hover:text-softBlue transition-colors"
             >
               Experiences
             </button>
             <button
               onClick={() => scrollToSection("portfolio")}
-              className="text-[#1D1D1F] hover:text-[#007AFF] transition-colors"
+              className="text-textPrimary hover:text-softBlue transition-colors"
             >
               Portfolio
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="text-[#1D1D1F] hover:text-[#007AFF] transition-colors"
+              className="text-textPrimary hover:text-softBlue transition-colors"
             >
               Contact
             </button>
             <Button
               onClick={() => scrollToSection("contact")}
-              className="bg-[#1D1D1F] text-white hover:opacity-80 rounded-xl"
+              className="bg-softBlue text-white hover:opacity-90 rounded-xl"
             >
               프로젝트 제안하기
             </Button>
@@ -94,29 +100,32 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {isMobile && isMenuOpen && (
-          <div className="fixed inset-0 top-[72px] bg-white z-40 p-6">
+          <div className="fixed inset-0 top-[72px] bg-offWhite z-40 p-6">
             <nav className="flex flex-col space-y-6 pt-6">
-              <button onClick={() => scrollToSection("about")} className="text-[#1D1D1F] text-xl font-medium py-2">
+              <button onClick={() => scrollToSection("about")} className="text-textPrimary text-xl font-medium py-2">
                 About
               </button>
-              <button onClick={() => scrollToSection("skills")} className="text-[#1D1D1F] text-xl font-medium py-2">
+              <button onClick={() => scrollToSection("skills")} className="text-textPrimary text-xl font-medium py-2">
                 Skill Set
+              </button>
+              <button onClick={() => scrollToSection("education")} className="text-textPrimary text-xl font-medium py-2">
+                Education
               </button>
               <button
                 onClick={() => scrollToSection("experiences")}
-                className="text-[#1D1D1F] text-xl font-medium py-2"
+                className="text-textPrimary text-xl font-medium py-2"
               >
                 Experiences
               </button>
-              <button onClick={() => scrollToSection("portfolio")} className="text-[#1D1D1F] text-xl font-medium py-2">
+              <button onClick={() => scrollToSection("portfolio")} className="text-textPrimary text-xl font-medium py-2">
                 Portfolio
               </button>
-              <button onClick={() => scrollToSection("contact")} className="text-[#1D1D1F] text-xl font-medium py-2">
+              <button onClick={() => scrollToSection("contact")} className="text-textPrimary text-xl font-medium py-2">
                 Contact
               </button>
               <Button
                 onClick={() => scrollToSection("contact")}
-                className="bg-[#1D1D1F] text-white hover:opacity-80 rounded-xl w-full mt-4"
+                className="bg-softBlue text-white hover:opacity-90 rounded-xl w-full mt-4"
               >
                 프로젝트 제안하기
               </Button>
