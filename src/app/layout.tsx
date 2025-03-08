@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     title: 'David Han - 풀스택 개발자',
     description: 'Next.js & TypeScript 기반의 포트폴리오 사이트',
     siteName: 'David Han Portfolio',
-    url: 'https://david-han.vercel.app',
+    url: 'https://david-career-page.vercel.app',
     images: [
       {
         url: '/web-app-manifest-512x512.png',
@@ -95,8 +95,8 @@ export default function RootLayout({
               "name": "David Han",
               "alternateName": "한동윤",
               "jobTitle": "풀스택 개발자",
-              "url": "https://david-han.vercel.app",
-              "image": "https://david-han.vercel.app/web-app-manifest-512x512.png",
+              "url": "https://david-career-page.vercel.app",
+              "image": "https://david-career-page.vercel.app/web-app-manifest-512x512.png",
               "description": "웹/앱 풀스택 개발자 한동윤의 포트폴리오입니다. React, Next.js, TypeScript 등을 활용한 웹 개발 프로젝트를 소개합니다.",
               "sameAs": [
                 "https://github.com/david-han-0831",
