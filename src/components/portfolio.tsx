@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { ExternalLink, Github } from "lucide-react"
+import { ExternalLink, Github, FolderKanban } from "lucide-react"
 import Image from "next/image"
 
 interface Project {
@@ -62,7 +62,10 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="py-24 px-6 md:px-10 lg:px-20 bg-lightGray">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-16 text-center">Portfolio</h2>
+        <div className="flex items-center gap-3 mb-16 justify-center">
+          <FolderKanban className="w-8 h-8 text-softBlue" />
+          <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">Portfolio</h2>
+        </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project) => (

@@ -69,7 +69,7 @@ export default function Education() {
   return (
     <section id="education" className="py-24 px-6 md:px-10 lg:px-20 bg-lightGray">
       <div className="max-w-7xl mx-auto">
-        <div className="flex items-center gap-3 mb-16">
+        <div className="flex items-center gap-3 mb-16 justify-center">
           <GraduationCap className="w-8 h-8 text-softBlue" />
           <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">Education</h2>
         </div>

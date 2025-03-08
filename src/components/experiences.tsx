@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { ChevronRight } from "lucide-react"
+import { ChevronRight, Briefcase } from "lucide-react"
 
 interface Experience {
   id: number
@@ -68,7 +68,10 @@ export default function Experiences() {
   return (
     <section id="experiences" className="py-24 px-6 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-16 text-center">Experiences</h2>
+        <div className="flex items-center gap-3 mb-16 justify-center">
+          <Briefcase className="w-8 h-8 text-softBlue" />
+          <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">Experiences</h2>
+        </div>
 
         <div className="space-y-8">
           {experiences.map((exp) => (

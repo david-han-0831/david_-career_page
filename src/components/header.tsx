@@ -44,7 +44,7 @@ export default function Header() {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <Link href="/" className="text-xl font-bold text-textPrimary">
-          한동윤
+          {/* 한동윤 */}
         </Link>
 
         {isMobile ? (

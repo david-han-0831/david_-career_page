@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Instagram, Linkedin, Mail, Send } from "lucide-react"
+import { Github, Instagram, Linkedin, Mail, Send, PhoneCall } from "lucide-react"
 import { toast } from "sonner"
 
 export default function Contact() {
@@ -40,7 +40,10 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24 px-6 md:px-10 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold text-textPrimary mb-16 text-center">Contact</h2>
+        <div className="flex items-center gap-3 mb-16 justify-center">
+          <PhoneCall className="w-8 h-8 text-softBlue" />
+          <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">Contact</h2>
+        </div>
 
         <div className="grid md:grid-cols-2 gap-12 lg:gap-24">
           <div>

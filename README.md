@@ -12,14 +12,67 @@
 
 ## 🛠️ 기술 스택
 
-- **프레임워크**: Next.js 14 (App Router)
-- **언어**: TypeScript
-- **스타일링**: Tailwind CSS, Stylus
+### 언어
+- TypeScript, JavaScript
+- HTML5, CSS3, SASS
+- Python, Java
+
+### 프론트엔드
+- **프레임워크**: Next.js 14 (App Router), React
+- **상태 관리**: Redux, React Query, Zustand
+- **라우팅**: React Router
+- **스타일링**: 
+  - Tailwind CSS
+  - Styled Components
+  - Material UI
+  - Chakra UI
+  - Bootstrap
+- **빌드 도구**: Webpack, Vite
 - **UI 컴포넌트**: shadcn/ui
-- **상태 관리**: Zustand
-- **폼 관리**: React Hook Form
 - **애니메이션**: Framer Motion
-- **배포**: Vercel
+
+### 백엔드
+- **프레임워크**:
+  - Spring Boot
+  - Node.js (Express)
+  - Nest.js
+  - Django
+  - FastAPI
+- **웹 서버**: Nginx, Apache
+
+### 데이터베이스 & 클라우드
+- **관계형 DB**: MySQL, PostgreSQL, Oracle
+- **NoSQL**: MongoDB, Redis
+- **검색 엔진**: Elasticsearch
+- **클라우드 서비스**:
+  - AWS
+  - Firebase
+  - Vercel
+  - Netlify
+  - Heroku
+
+### 앱 개발
+- Flutter
+- React Native
+
+### 개발도구 & DevOps
+- **버전 관리**: Git, GitHub, GitLab
+- **컨테이너화**: Docker, Kubernetes
+- **CI/CD**: Jenkins
+- **API 도구**: Postman, Swagger
+- **협업 도구**: 
+  - Jira
+  - Confluence
+  - Slack
+  - Notion
+- **운영체제**:
+  - Windows
+  - Linux (Ubuntu, CentOS)
+  - macOS
+
+### AI & ML
+- TensorFlow
+- PyTorch
 
 ## 🎨 디자인 시스템
 
