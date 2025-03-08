@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://david-han.vercel.app'
+  const baseUrl = 'https://david-career-page.vercel.app'
 
   // 정적 라우트 정의
   const routes = [

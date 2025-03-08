@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://david-han.vercel.app'
+  const baseUrl = 'https://david-career-page.vercel.app'
 
   // 프로덕션 환경이 아닌 경우 모든 크롤링 차단
   if (process.env.NODE_ENV !== 'production') {
