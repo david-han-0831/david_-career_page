@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Github, Instagram, Linkedin, Mail, Send, PhoneCall } from "lucide-react"
 import { toast } from "sonner"
+import { event as gaEvent } from '@/lib/gtag'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,12 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
+
+    gaEvent({
+      action: "submit",
+      category: "contact",
+      label: "contact_form_submit",
+    })
 
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500))

@@ -2,9 +2,16 @@
 
 import { Button } from "@/components/ui/button"
 import { ArrowDown, User } from "lucide-react"
+import { event as gaEvent } from '@/lib/gtag'
 
 export default function Hero() {
   const scrollToContact = () => {
+    gaEvent({
+      action: "click",
+      category: "contact",
+      label: "hero_contact_button",
+    })
+    
     const contactSection = document.getElementById("contact")
     if (contactSection) {
       const headerOffset = 80
