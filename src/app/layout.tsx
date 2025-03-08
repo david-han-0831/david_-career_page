@@ -109,13 +109,75 @@ export default function RootLayout({
                 "email": "hdy20201004@gmail.com",
                 "contactType": "개발 문의"
               },
+              "hasOccupation": {
+                "@type": "Occupation",
+                "name": "풀스택 개발자",
+                "mainEntityOfPage": {
+                  "@type": "WebPage",
+                  "@id": "https://david-career-page.vercel.app/",
+                  "lastReviewed": "2024-03-09"
+                },
+                "occupationLocation": {
+                  "@type": "City",
+                  "name": "서울특별시",
+                  "address": {
+                    "@type": "PostalAddress",
+                    "addressCountry": "KR",
+                    "addressRegion": "서울특별시"
+                  }
+                },
+                "estimatedSalary": {
+                  "@type": "MonetaryAmountDistribution",
+                  "name": "풀스택 개발자 급여",
+                  "currency": "KRW",
+                  "duration": "P1M",
+                  "median": 5500000,
+                  "percentile10": 4000000,
+                  "percentile25": 4000000,
+                  "percentile75": 7000000,
+                  "percentile90": 7000000
+                },
+                "description": "웹/앱 풀스택 개발자로서 프론트엔드와 백엔드 개발을 모두 담당합니다. 최신 기술 스택을 활용하여 효율적이고 확장 가능한 솔루션을 제공합니다.",
+                "skills": [
+                  "웹 개발",
+                  "모바일 앱 개발",
+                  "데이터베이스 설계",
+                  "API 개발",
+                  "UI/UX 디자인"
+                ],
+                "responsibilities": [
+                  "웹 애플리케이션 개발",
+                  "RESTful API 설계 및 구현",
+                  "데이터베이스 모델링",
+                  "프론트엔드 개발",
+                  "백엔드 개발"
+                ]
+              },
               "knowsAbout": [
-                "웹 개발",
-                "React",
-                "Next.js",
-                "TypeScript",
-                "Python",
-                "FastAPI"
+                {
+                  "@type": "Technology",
+                  "name": "프론트엔드",
+                  "skills": ["React", "Next.js", "TypeScript", "TailwindCSS"]
+                },
+                {
+                  "@type": "Technology",
+                  "name": "백엔드",
+                  "skills": ["Python", "FastAPI", "Node.js", "Express"]
+                },
+                {
+                  "@type": "Technology",
+                  "name": "데이터베이스",
+                  "skills": ["PostgreSQL", "MongoDB", "Redis"]
+                }
+              ],
+              "workExample": [
+                {
+                  "@type": "CreativeWork",
+                  "name": "포트폴리오 웹사이트",
+                  "url": "https://david-career-page.vercel.app",
+                  "description": "Next.js와 TypeScript를 활용한 개인 포트폴리오 웹사이트",
+                  "technologies": ["Next.js", "TypeScript", "TailwindCSS"]
+                }
               ],
               "worksFor": {
                 "@type": "Organization",
