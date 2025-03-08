@@ -6,7 +6,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { Github, Instagram, Linkedin, Mail, Send, PhoneCall } from "lucide-react"
+import { Github, Instagram, Linkedin, Mail, Send, PhoneCall, Copy, Check } from "lucide-react"
 import { toast } from "sonner"
 import { event as gaEvent } from '@/lib/gtag'
 
@@ -17,6 +17,7 @@ export default function Contact() {
     message: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isCopied, setIsCopied] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -42,6 +43,25 @@ export default function Contact() {
 
     setFormData({ name: "", email: "", message: "" })
     setIsSubmitting(false)
+  }
+
+  const handleCopyEmail = (e: React.MouseEvent) => {
+    e.preventDefault()
+    const email = "hdy20201004@gmail.com"
+    navigator.clipboard.writeText(email)
+    setIsCopied(true)
+    
+    toast('이메일이 복사되었습니다', {
+      description: '이메일 클라이언트에 붙여넣기 해주세요.',
+    })
+
+    gaEvent({
+      action: "click",
+      category: "contact",
+      label: "copy_email",
+    })
+
+    setTimeout(() => setIsCopied(false), 2000)
   }
 
   return (
@@ -137,60 +157,85 @@ export default function Contact() {
 
             <div className="space-y-6">
               <a
-                href="mailto:hdy20201004@gmail.com"
+                href="#"
+                onClick={handleCopyEmail}
                 className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
-                  <Mail className="w-5 h-5 text-white" />
+                <div className="w-10 h-10 rounded-full bg-red-500 flex items-center justify-center">
+                  {isCopied ? (
+                    <Check className="w-5 h-5 text-white" />
+                  ) : (
+                    <Mail className="w-5 h-5 text-white" />
+                  )}
                 </div>
-                <div>
+                <div className="flex-1">
                   <p className="text-sm text-darkGray">이메일</p>
                   <p className="text-textPrimary font-medium">hdy20201004@gmail.com</p>
                 </div>
+                <Copy className="w-4 h-4 text-darkGray" />
               </a>
 
               <a
-                href="https://github.com/username"
+                href="https://github.com/david-han-0831"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#24292e] flex items-center justify-center">
                   <Github className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-darkGray">GitHub</p>
-                  <p className="text-textPrimary font-medium">github.com/username</p>
+                  <p className="text-textPrimary font-medium">github.com/david-han-0831</p>
                 </div>
               </a>
 
               <a
-                href="https://instagram.com/username"
+                href="https://www.instagram.com/klang_code/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-gradient-to-tr from-[#ff8a00] via-[#e95950] to-[#bc2a8d] flex items-center justify-center">
                   <Instagram className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-darkGray">Instagram</p>
-                  <p className="text-textPrimary font-medium">@username</p>
+                  <p className="text-textPrimary font-medium">@klang_code</p>
                 </div>
               </a>
 
               <a
-                href="https://linkedin.com/in/username"
+                href="https://www.linkedin.com/in/david880927/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
               >
-                <div className="w-10 h-10 rounded-full bg-softBlue flex items-center justify-center">
+                <div className="w-10 h-10 rounded-full bg-[#0077B5] flex items-center justify-center">
                   <Linkedin className="w-5 h-5 text-white" />
                 </div>
                 <div>
                   <p className="text-sm text-darkGray">LinkedIn</p>
-                  <p className="text-textPrimary font-medium">linkedin.com/in/username</p>
+                  <p className="text-textPrimary font-medium">linkedin.com/in/david880927</p>
+                </div>
+              </a>
+
+              <a
+                href="https://bento.me/david-han"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-4 p-4 rounded-xl hover:bg-lightGray transition-colors"
+              >
+                <div className="w-10 h-10 rounded-full bg-white flex items-center justify-center">
+                  <img 
+                    src="/Bento Brand Assets/Bento-Logo.svg" 
+                    alt="Bento" 
+                    className="w-5 h-5"
+                  />
+                </div>
+                <div>
+                  <p className="text-sm text-darkGray">Bento</p>
+                  <p className="text-textPrimary font-medium">bento.me/david-han</p>
                 </div>
               </a>
             </div>
