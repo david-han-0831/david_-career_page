@@ -20,6 +20,14 @@ type GTagEvent = {
   value?: number
 }
 
+// GA4 설정 타입
+type GTagConfig = {
+  page_path?: string
+  event_category?: string
+  event_label?: string
+  value?: number
+}
+
 export const event = ({ action, category, label, value }: GTagEvent) => {
   window.gtag('event', action, {
     event_category: category,
@@ -34,7 +42,7 @@ declare global {
     gtag: (
       command: 'config' | 'event',
       targetId: string,
-      config?: Record<string, any>
+      config?: GTagConfig
     ) => void
   }
 } 
