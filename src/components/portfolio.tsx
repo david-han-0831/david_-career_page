@@ -24,7 +24,7 @@ export default function Portfolio() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "문화예술 플랫폼 '아트스테이지'",
+      title: "문화예술 플랫폼 &apos;아트스테이지&apos;",
       description: "문화예술인들을 위한 앱 및 웹 플랫폼",
       image: "/placeholder.svg?height=600&width=800",
       details:
