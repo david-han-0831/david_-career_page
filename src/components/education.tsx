@@ -265,7 +265,7 @@ export default function Education() {
           {selectedEducation && (
             <Dialog 
               open={!!selectedEducation} 
-              onOpenChange={(open) => {
+              onOpenChange={(open: boolean) => {
                 if (!open) setSelectedEducation(null);
               }}
             >
