@@ -24,34 +24,40 @@ export default function Portfolio() {
   const projects: Project[] = [
     {
       id: 1,
-      title: "AI 기반 추천 시스템",
-      description: "사용자 행동 패턴을 분석하여 개인화된 콘텐츠를 추천하는 시스템",
-      image: "/img/portfolio/project1.jpg",
-      details: "머신러닝 알고리즘을 활용하여 사용자의 행동 패턴을 분석하고, 이를 기반으로 개인화된 콘텐츠를 추천하는 시스템을 개발했습니다. 협업 필터링과 콘텐츠 기반 필터링을 결합한 하이브리드 접근 방식을 사용하여 추천 정확도를 높였습니다.",
-      technologies: ["Python", "TensorFlow", "Flask", "React", "MongoDB"],
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com"
+      title: "문화예술 플랫폼 '아트스테이지'",
+      description: "문화예술인들을 위한 앱 및 웹 플랫폼",
+      image: "/placeholder.svg?height=600&width=800",
+      details:
+        "문화예술인들을 위한 앱 및 웹 플랫폼으로, 회원관리, 공연/행사 관리, 지원사업 데이터 크롤링 기능을 제공합니다. 2024년 서울 청년창업사관학교 입교기업으로 선정되었으며, 서비스 기획부터 프로젝트 매니저, 데이터 수집 및 관리, 프론트 & 백엔드 개발까지 전반적인 개발을 담당했습니다.",
+      technologies: ["Java", "Spring Boot", "JavaScript", "React", "MySQL", "Python"],
     },
     {
       id: 2,
-      title: "실시간 채팅 애플리케이션",
-      description: "WebSocket을 활용한 실시간 채팅 및 협업 플랫폼",
-      image: "/img/portfolio/project2.jpg",
-      details: "WebSocket 기술을 활용하여 실시간 메시징이 가능한 채팅 애플리케이션을 개발했습니다. 사용자 인증, 채팅방 생성, 파일 공유 등의 기능을 구현했으며, 메시지 전송 지연을 최소화하기 위한 최적화 작업을 수행했습니다.",
-      technologies: ["Node.js", "Socket.io", "Express", "React", "MongoDB"],
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com"
+      title: "AI 개발자 프로젝트 매칭 플랫폼",
+      description: "AI 개발자와 프로젝트를 매칭하는 앱 플랫폼",
+      image: "/placeholder.svg?height=600&width=800",
+      details:
+        "AI 개발자와 프로젝트를 매칭하는 앱 플랫폼으로, 프로젝트 매니저 역할과 프론트 & 백엔드 개발을 담당했습니다. 개발자 프로필 관리, 프로젝트 등록 및 매칭, 커뮤니케이션 기능 등을 구현했습니다.",
+      technologies: ["JavaScript", "React", "Java", "Spring Boot", "MySQL"],
     },
     {
       id: 3,
-      title: "건강 관리 모바일 앱",
-      description: "사용자의 건강 데이터를 추적하고 분석하는 모바일 애플리케이션",
-      image: "/img/portfolio/project3.jpg",
-      details: "사용자의 운동, 식단, 수면 등 건강 관련 데이터를 추적하고 분석하는 모바일 애플리케이션을 개발했습니다. 건강 데이터 시각화, 목표 설정 및 알림 기능을 구현하여 사용자가 건강한 생활 습관을 유지할 수 있도록 도왔습니다.",
-      technologies: ["Flutter", "Firebase", "Node.js", "Express", "MongoDB"],
-      demoUrl: "https://example.com",
-      githubUrl: "https://github.com"
-    }
+      title: "맞춤형 AI 챗봇 솔루션",
+      description: "기업 고객 응대를 위한 맞춤형 AI 챗봇 솔루션",
+      image: "/placeholder.svg?height=600&width=800",
+      details:
+        "기업 고객 응대를 위한 맞춤형 AI 챗봇 솔루션으로, 상담내용 수집부, 후처리 자동화 처리부, 동의어 처리부, 오류재학습부 등 다양한 모듈을 통해 고객의 요구를 효율적으로 대응하고 챗봇 성능을 지속적으로 개선할 수 있는 기능을 포함합니다. 특허 출원(특허-2023-0130063)을 통해 회사의 벤처기업인증, 기술보증기금 자금 확보의 성과를 이루어냈습니다.",
+      technologies: ["Python", "TensorFlow", "FastAPI", "React", "MySQL"],
+    },
+    {
+      id: 4,
+      title: "비대면 진료 앱 및 CRM",
+      description: "비대면 진료 앱 및 병원 CRM 시스템",
+      image: "/placeholder.svg?height=600&width=800",
+      details:
+        "비대면 진료 앱 및 병원 CRM 시스템으로, 환자관리, 예약관리, 접수, 상담, 매출, 통계 기능을 제공합니다. 프로젝트 매니저 역할과 백엔드 개발을 담당했으며, 병원 업무 프로세스를 효율화하고 환자 경험을 개선했습니다.",
+      technologies: ["Java", "Spring Boot", "JavaScript", "Flutter", "MySQL"],
+    },
   ]
 
   const container = {

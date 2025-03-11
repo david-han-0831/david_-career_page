@@ -14,15 +14,13 @@ interface Education {
   degree: string
   major: string
   details?: string[]
-  logo?: React.ReactNode
   achievement?: string
 }
 
 export default function Education() {
   const [selectedEducation, setSelectedEducation] = useState<Education | null>(null)
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
-  const [hoveredLogo, setHoveredLogo] = useState<number | null>(null)
-
+  
   // 각 교육 항목에 대한 참조 생성
   const ref1 = useRef(null)
   const ref2 = useRef(null)
@@ -39,7 +37,6 @@ export default function Education() {
   // 호버 상태 초기화 함수
   const resetHoverStates = () => {
     setHoveredIndex(null);
-    setHoveredLogo(null);
   };
 
   // 컴포넌트 마운트/언마운트 시 호버 상태 초기화
@@ -48,22 +45,6 @@ export default function Education() {
       resetHoverStates();
     };
   }, []);
-
-  // 로고 컴포넌트 생성 함수
-  const createLogoComponent = (src: string, alt: string, width: number, height: number, className: string = "object-cover w-full h-full") => {
-    return (
-      <div className="w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-white">
-        <Image 
-          src={src} 
-          alt={alt} 
-          width={width} 
-          height={height} 
-          className={className}
-          draggable={false}
-        />
-      </div>
-    );
-  };
 
   const educations: Education[] = [
     {
@@ -75,9 +56,12 @@ export default function Education() {
       details: [
         "인공지능 및 머신러닝 심화 학습",
         "자연어 처리 및 컴퓨터 비전 연구",
-        "AI 모델 최적화 및 응용 연구"
+        "AI 모델 최적화 및 응용 연구",
+        "의료영상 Denoising 연구",
+        "음악일기 앱 개발 - 사용자의 감정과 텍스트 기반 음악 자동 생성",
+        "수리적 최적화 알고리즘 구현",
+        "입사지원자의 경력 및 이력서 분석을 통한 업무 적합성 분류 모델 구축"
       ],
-      logo: createLogoComponent("/education_logo/yonsei.jpg", "연세대학교", 64, 64),
       achievement: "AI 연구 프로젝트 진행 중"
     },
     {
@@ -91,7 +75,6 @@ export default function Education() {
         "오케스트라 및 앙상블 활동",
         "음악 이론 및 실기 심화 학습"
       ],
-      logo: createLogoComponent("/education_logo/hochschule-musik-tanz-koeln.svg", "Hochschule für Musik und Tanz Köln", 64, 64, "object-contain w-full h-full"),
       achievement: "졸업 연주회 우수 성적 달성"
     },
     {
@@ -104,7 +87,6 @@ export default function Education() {
         "음악 이론 및 실기 학습",
         "오케스트라 활동 참여"
       ],
-      logo: createLogoComponent("/education_logo/khu.png", "경희대학교", 80, 80, "object-contain w-[80%] h-[80%]"),
       achievement: "교내 연주회 참가"
     },
     {
@@ -117,7 +99,6 @@ export default function Education() {
         "음악 기초 이론 및 실기 학습",
         "학교 오케스트라 활동"
       ],
-      logo: createLogoComponent("/education_logo/kaywon.jpg", "계원예술고등학교", 64, 64),
       achievement: "전국 학생 음악 콩쿠르 입상"
     }
   ]
@@ -131,17 +112,50 @@ export default function Education() {
       y: 0,
       transition: {
         type: "spring",
-        stiffness: 200,
-        damping: 25,
-        duration: 1.8,
-        mass: 1
+        stiffness: 70,
+        damping: 15,
+        duration: 1.2,
+        mass: 1.5
       }
     },
     exit: { 
       opacity: 0,
       scale: 0.8,
       transition: {
-        duration: 0.1
+        duration: 0.08,
+        ease: "easeOut"
+      }
+    }
+  }
+
+  const container = {
+    hidden: { opacity: 1 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+        delayChildren: 0.2
+      }
+    }
+  }
+
+  const item = {
+    hidden: { 
+      opacity: 0, 
+      y: 30
+    },
+    show: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.21, 0.35, 0.15, 1],
+        opacity: {
+          duration: 0.4,
+        },
+        y: {
+          duration: 0.6,
+        }
       }
     }
   }
@@ -149,88 +163,29 @@ export default function Education() {
   return (
     <section id="education" className="py-24 px-6 md:px-10 lg:px-20 bg-white overflow-hidden relative">
       {/* 배경 장식 요소 */}
-      <motion.div 
-        className="absolute top-20 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-softBlue/10 to-softBlue/20 blur-3xl"
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false }}
-        transition={{ duration: 1 }}
-      />
-      <motion.div 
-        className="absolute bottom-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-softTurquoise/10 to-softTurquoise/20 blur-3xl"
-        initial={{ opacity: 0, scale: 0 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: false }}
-        transition={{ duration: 1, delay: 0.3 }}
-      />
+      <div className="absolute top-20 right-10 w-32 h-32 rounded-full bg-gradient-to-r from-softBlue/10 to-softBlue/20 blur-3xl" />
+      <div className="absolute bottom-20 left-10 w-40 h-40 rounded-full bg-gradient-to-r from-softTurquoise/10 to-softTurquoise/20 blur-3xl" />
       
       {/* 타임라인 연결선 */}
       <div className="absolute left-[-8px] top-[200px] bottom-[100px] w-0.5 bg-gradient-to-b from-softBlue/50 via-softTurquoise/40 to-softBlue/30 hidden md:block" />
       
       <div className="max-w-7xl mx-auto">
-        <motion.div 
-          className="flex items-center gap-3 mb-16 justify-center relative"
-          initial={{ opacity: 0, y: -50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false }}
-          transition={{ 
-            type: "spring",
-            stiffness: 100,
-            damping: 10,
-            duration: 0.8 
-          }}
-        >
-          <motion.div
-            initial={{ scale: 0, rotate: -180 }}
-            whileInView={{ scale: 1, rotate: 0 }}
-            viewport={{ once: false }}
-            transition={{ 
-              type: "spring",
-              stiffness: 200,
-              damping: 20,
-              delay: 0.2,
-              duration: 0.8 
-            }}
-          >
-            <GraduationCap className="w-10 h-10 text-softBlue" />
-          </motion.div>
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-textPrimary"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-          >
+        <div className="flex items-center gap-3 mb-16 justify-center relative">
+          <GraduationCap className="w-10 h-10 text-softBlue" />
+          <h2 className="text-3xl md:text-4xl font-bold text-textPrimary">
             Education
-          </motion.h2>
-        </motion.div>
+          </h2>
+        </div>
 
         <div className="space-y-12" onMouseLeave={resetHoverStates}>
           {educations.map((edu, index) => {
             return (
-              <motion.div
+              <div
                 key={edu.id}
                 ref={refs[index]}
-                className={`flex flex-col md:flex-row gap-6 p-6 pt-16 bg-gradient-to-r from-lightGray/20 to-lightGray/10 backdrop-blur-sm rounded-2xl shadow-soft transition-all cursor-pointer border relative
-                  ${hoveredIndex === index && hoveredLogo !== index ? 'border-softBlue/50 shadow-lg' : 'border-lightGray/30'}
+                className={`flex flex-col md:flex-row gap-6 p-6 bg-gradient-to-r from-lightGray/20 to-lightGray/10 backdrop-blur-sm rounded-2xl shadow-soft transition-all cursor-pointer border relative
+                  ${hoveredIndex === index ? 'border-softBlue/50 shadow-lg' : 'border-lightGray/30'}
                 `}
-                initial={{ opacity: 0, scale: 0.8, y: 20 }}
-                whileInView={{ 
-                  opacity: 1, 
-                  scale: 1, 
-                  y: 0,
-                  transition: {
-                    type: "spring",
-                    duration: 0.5,
-                    bounce: 0.3,
-                    delay: 0.1
-                  }
-                }}
-                viewport={{ once: false, amount: 0.3 }}
-                whileHover={{ 
-                  boxShadow: '0 10px 20px rgba(0, 0, 0, 0.1)',
-                  transition: { duration: 0.2, ease: "easeOut" }
-                }}
                 style={{
                   transformOrigin: 'center',
                   transform: 'translateZ(0)',
@@ -241,46 +196,8 @@ export default function Education() {
                 onMouseEnter={() => setHoveredIndex(index)}
                 onMouseLeave={() => {
                   setHoveredIndex(null);
-                  setHoveredLogo(null);
                 }}
               >
-                {/* 학교 로고 */}
-                <div className="absolute -left-8 -top-8 z-10">
-                  <motion.div 
-                    className={`w-16 h-16 bg-white rounded-full p-1 shadow-md flex items-center justify-center transition-all duration-200
-                      ${hoveredLogo === index ? 'ring-2 ring-softBlue' : 'ring-0'}
-                    `}
-                    initial={{ scale: 0, opacity: 0 }}
-                    whileInView={{ scale: 1, opacity: 1 }}
-                    viewport={{ once: false }}
-                    transition={{ 
-                      type: "tween",
-                      duration: 0.2,
-                      ease: "easeOut",
-                      delay: index * 0.1
-                    }}
-                    whileHover={{
-                      boxShadow: '0 0 15px rgba(94, 142, 235, 0.5)',
-                      transition: { duration: 0.2 }
-                    }}
-                    onMouseEnter={(e) => {
-                      e.stopPropagation();
-                      setHoveredLogo(index);
-                    }}
-                    onMouseLeave={(e) => {
-                      e.stopPropagation();
-                      setHoveredLogo(null);
-                      setHoveredIndex(null);
-                    }}
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelectedEducation(edu);
-                    }}
-                  >
-                    {edu.logo}
-                  </motion.div>
-                </div>
-                
                 {/* 기간 표시 */}
                 <div className="md:w-1/4 relative">
                   <div className="flex items-center gap-2">
@@ -305,32 +222,16 @@ export default function Education() {
                     {edu.degree} · {edu.major}
                   </p>
                   
-                  {/* 미리보기 내용 - 호버 시에만 표시 */}
-                  <AnimatePresence>
-                    {hoveredIndex === index && (
-                      <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="overflow-hidden"
-                        transition={{ 
-                          height: { duration: 0.3 },
-                          opacity: { duration: 0.2 }
-                        }}
-                      >
-                        <div className="text-sm text-textPrimary mb-3 font-medium">
-                          <ul className="list-disc pl-5 space-y-1">
-                            {edu.details?.slice(0, 1).map((detail, idx) => (
-                              <li key={idx}>{detail}</li>
-                            ))}
-                            {edu.details && edu.details.length > 1 && (
-                              <li>그 외 {edu.details.length - 1}개 항목...</li>
-                            )}
-                          </ul>
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <div className="text-sm text-textPrimary mb-3 font-medium">
+                    <ul className="list-disc pl-5 space-y-1">
+                      {edu.details?.slice(0, 1).map((detail, idx) => (
+                        <li key={idx}>{detail}</li>
+                      ))}
+                      {edu.details && edu.details.length > 1 && (
+                        <li>그 외 {edu.details.length - 1}개 항목...</li>
+                      )}
+                    </ul>
+                  </div>
                   
                   {edu.details && edu.details.length > 0 && (
                     <Button
@@ -355,33 +256,67 @@ export default function Education() {
                     transition={{ duration: 0.3 }}
                   />
                 )}
-              </motion.div>
+              </div>
             );
           })}
         </div>
 
-        <AnimatePresence>
+        <AnimatePresence mode="wait">
           {selectedEducation && (
-            <Dialog open={!!selectedEducation} onOpenChange={(open) => {
-              if (!open) {
-                setSelectedEducation(null);
-                resetHoverStates();
-              }
-            }}>
-              <DialogContent className="sm:max-w-[600px] p-0 border-none bg-transparent shadow-none">
+            <Dialog 
+              open={!!selectedEducation} 
+              onOpenChange={(open) => {
+                if (!open) setSelectedEducation(null);
+              }}
+            >
+              <DialogContent 
+                className="sm:max-w-[600px] md:max-w-[800px] p-0 border-none bg-transparent shadow-none overflow-hidden [&>button]:hidden"
+              >
                 <motion.div
-                  className="bg-white rounded-lg shadow-lg w-full"
-                  variants={modalVariants}
+                  className="bg-white rounded-lg shadow-lg w-full relative max-h-[80vh] overflow-hidden flex flex-col"
+                  variants={{
+                    hidden: { opacity: 0, scale: 0.8, y: 50 },
+                    visible: { 
+                      opacity: 1, 
+                      scale: 1, 
+                      y: 0,
+                      transition: {
+                        type: "spring",
+                        stiffness: 70,
+                        damping: 15,
+                        duration: 1.2,
+                        mass: 1.5
+                      }
+                    },
+                    exit: { 
+                      opacity: 0,
+                      scale: 0.95,
+                      transition: {
+                        duration: 0.2,
+                        ease: "easeOut"
+                      }
+                    }
+                  }}
                   initial="hidden"
                   animate="visible"
                   exit="exit"
                 >
-                  <div className="p-6">
+                  <div className="absolute top-2 right-2 z-50">
+                    <Button
+                      variant="ghost"
+                      size="icon"
+                      className="rounded-full hover:bg-gray-100/80 focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      onClick={() => setSelectedEducation(null)}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 text-gray-500 hover:text-gray-700">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                      </svg>
+                    </Button>
+                  </div>
+                  <div className="p-6 overflow-y-auto">
                     <DialogHeader>
-                      <DialogTitle className="text-2xl font-bold flex items-center gap-2">
-                        <div className="w-12 h-12 flex items-center justify-center">
-                          {selectedEducation.logo}
-                        </div>
+                      <DialogTitle className="text-2xl font-bold">
                         {selectedEducation.school}
                       </DialogTitle>
                       <DialogDescription className="text-base text-textPrimary font-semibold">
@@ -389,37 +324,252 @@ export default function Education() {
                       </DialogDescription>
                     </DialogHeader>
                     <div className="mt-4">
-                      {selectedEducation.achievement && (
-                        <div className="mb-4 flex items-center gap-2 text-softBlue/90 bg-softBlue/5 px-3 py-2 rounded-lg">
-                          <Award className="w-5 h-5" />
-                          <p className="font-semibold">{selectedEducation.achievement}</p>
-                        </div>
+                      {selectedEducation.id === 1 ? (
+                        <>
+                          <div>
+                            <h4 className="text-lg font-bold mb-3">🎓 학위 과정 개요</h4>
+                            <div className="p-4 border-l-4 border-softTurquoise bg-softTurquoise/10 rounded-md">
+                              <p className="text-darkGray">
+                                연세대학교 공학대학원 인공지능 전공 석사 과정에서 AI 및 머신러닝에 대한 심층 연구를 수행하고 있습니다.
+                                인공지능의 기본 개념부터 응용 기술까지 학습하며, 최신 딥러닝 기술을 활용한 연구 프로젝트를 진행하고 있습니다.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🧪 연구 프로젝트</h4>
+                            <div className="p-4 border-l-4 border-purple-400 bg-purple-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "의료영상 Denoising 연구",
+                                  "수리적 최적화 알고리즘 구현",
+                                  "음악일기 앱 개발 - 사용자의 감정과 텍스트 기반 음악 자동 생성",
+                                  "입사지원자의 경력 및 이력서 분석을 통한 업무 적합성 분류 모델 구축"
+                                ].map((project, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-purple-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{project}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                          
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">📚 수강 과목</h4>
+                            <div className="p-4 border-l-4 border-amber-400 bg-amber-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "인공지능 개론 및 기초 딥러닝 응용",
+                                  "파이썬으로 하는 고급 머신러닝",
+                                  "기계학습을 위한 최적화 개론",
+                                  "의료영상 인공지능",
+                                  "시각인식을 위한 딥러닝과 응용",
+                                  "스마트 제조 인공지능"
+                                ].map((course, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-amber-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{course}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🏆 주요 성취</h4>
+                            <div className="p-4 border-l-4 border-emerald-400 bg-emerald-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "AI 기반 음악 생성 프로젝트 진행",
+                                  "Logistic Regression, SVM, Decision Tree, Random Forest, MLP 등 다양한 머신러닝 알고리즘 구현 및 실습",
+                                  "딥러닝 프레임워크를 활용한 CNN, RNN, Word2Vec 등 신경망 모델 구현",
+                                  "PyTorch를 활용한 딥러닝 모델 개발",
+                                  "머신러닝 및 데이터 분석 강의 진행",
+                                  "수리적 최적화 알고리즘 적용 실습"
+                                ].map((achievement, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-emerald-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </>
+                      ) : selectedEducation.id === 2 ? (
+                        <>
+                          <div>
+                            <h4 className="text-lg font-bold mb-3">🎼 학위 과정 개요</h4>
+                            <div className="p-4 border-l-4 border-softTurquoise bg-softTurquoise/10 rounded-md">
+                              <p className="text-darkGray">
+                                독일 쾰른 음악대학에서 클라리넷 전공 학사 과정을 이수하며, 오케스트라 및 실내악 연주 활동에 적극 참여하였습니다.
+                                음악 이론 및 연주 실기 교육을 바탕으로 다양한 공연을 경험하였습니다.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🎵 주요 공연 및 프로젝트</h4>
+                            <div className="p-4 border-l-4 border-purple-400 bg-purple-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "Köln 오케스트라 정기 연주회 (2013, 2014, 2015)",
+                                  "모차르트 클라리넷 5중주 연주 (2014)",
+                                  "유럽 음악 페스티벌 참가 - 프랑스, 독일, 이탈리아 (2015)",
+                                  "Salon 오케스트라 - 체코 (2015)",
+                                  "Das Junge Orchester - 독일 에쎈 (2013)"
+                                ].map((performance, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-purple-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{performance}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🎶 수강한 주요 과목</h4>
+                            <div className="p-4 border-l-4 border-amber-400 bg-amber-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "클라리넷 독주 및 실기 레슨",
+                                  "음악사 및 음악 이론, 음악 분석",
+                                  "피아노 부전공",
+                                  "음향학, 교수법, 알렉산더 테크닉"
+                                ].map((course, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-amber-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{course}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🏆 성취</h4>
+                            <div className="p-4 border-l-4 border-emerald-400 bg-emerald-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "GOETHE-ZERTIFIKAT B2 독일어 자격증 취득 (2013)",
+                                  "졸업 연주회 우수 성적 달성 (2015)"
+                                ].map((achievement, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-emerald-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{achievement}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+                        </>
+                      ) : selectedEducation.id === 3 ? (
+                        <>
+                          <div>
+                            <h4 className="text-lg font-bold mb-3">🎼 학위 과정 개요</h4>
+                            <div className="p-4 border-l-4 border-softTurquoise bg-softTurquoise/10 rounded-md">
+                              <p className="text-darkGray">
+                                경희대학교에서 클라리넷을 전공하며 음악 기초 이론 및 실기를 학습하였습니다.
+                                다양한 연주 활동을 통해 음악적 역량을 키웠으며, 교내 연주회 및 오케스트라 활동에 참여하였습니다.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🎵 주요 활동</h4>
+                            <div className="p-4 border-l-4 border-purple-400 bg-purple-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "교내 오케스트라 단원 활동",
+                                  "클라리넷 독주 및 실내악 연주"
+                                ].map((activity, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-purple-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{activity}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🏆 성취</h4>
+                            <div className="p-4 border-l-4 border-emerald-400 bg-emerald-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                <li className="flex items-center gap-2">
+                                  <span className="text-emerald-500 text-lg leading-none">•</span>
+                                  <span className="text-darkGray">교내 연주회 참가</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </>
+                      ) : selectedEducation.id === 4 ? (
+                        <>
+                          <div>
+                            <h4 className="text-lg font-bold mb-3">🎼 학위 과정 개요</h4>
+                            <div className="p-4 border-l-4 border-softTurquoise bg-softTurquoise/10 rounded-md">
+                              <p className="text-darkGray">
+                                계원예술고등학교에서 클라리넷 전공을 하며 음악 기초 이론과 연주 실력을 키웠습니다.
+                                전국 학생 음악 콩쿠르에서 입상하며 클래식 연주자로서의 기반을 다졌습니다.
+                              </p>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🎵 주요 활동</h4>
+                            <div className="p-4 border-l-4 border-purple-400 bg-purple-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                {[
+                                  "학교 오케스트라 단원 활동",
+                                  "정기 연주회 및 실내악 연주"
+                                ].map((activity, index) => (
+                                  <li key={index} className="flex items-center gap-2">
+                                    <span className="text-purple-500 text-lg leading-none">•</span>
+                                    <span className="text-darkGray">{activity}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <h4 className="text-lg font-bold mt-5 mb-3">🏆 수상 경력</h4>
+                            <div className="p-4 border-l-4 border-emerald-400 bg-emerald-50/80 rounded-md">
+                              <ul className="space-y-2">
+                                <li className="flex items-center gap-2">
+                                  <span className="text-emerald-500 text-lg leading-none">•</span>
+                                  <span className="text-darkGray">CBS 전국 청소년 콩쿨 1위 (2005)</span>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          {selectedEducation.achievement && (
+                            <div className="mb-4 flex items-center gap-2 text-softBlue/90 bg-softBlue/5 px-3 py-2 rounded-lg">
+                              <Award className="w-5 h-5" />
+                              <p className="font-semibold">{selectedEducation.achievement}</p>
+                            </div>
+                          )}
+                          
+                          <h4 className="text-lg font-bold mb-3">주요 활동</h4>
+                          <ul className="space-y-2">
+                            {selectedEducation.details?.map((detail, index) => (
+                              <li 
+                                key={index} 
+                                className="flex items-start gap-2"
+                              >
+                                <div className="w-1.5 h-1.5 rounded-full bg-softBlue mt-2"></div>
+                                <span className="font-medium">{detail}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
                       )}
-                      
-                      <h4 className="text-lg font-bold mb-3">주요 활동</h4>
-                      <ul className="space-y-2">
-                        {selectedEducation.details?.map((detail, index) => (
-                          <li 
-                            key={index} 
-                            className="flex items-start gap-2"
-                          >
-                            <div className="w-1.5 h-1.5 rounded-full bg-softBlue mt-2"></div>
-                            <span className="font-medium">{detail}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div className="mt-6 flex justify-end">
-                      <Button
-                        variant="ghost"
-                        className="text-darkGray font-medium border border-softBlue hover:bg-softBlue hover:text-white focus:ring-1 focus:ring-softBlue transition-all"
-                        onClick={() => {
-                          setSelectedEducation(null);
-                          resetHoverStates();
-                        }}
-                      >
-                        닫기
-                      </Button>
                     </div>
                   </div>
                 </motion.div>
