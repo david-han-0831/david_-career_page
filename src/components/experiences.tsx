@@ -267,7 +267,7 @@ export default function Experiences() {
                           <ul className="space-y-3">
                             {[
                               {
-                                title: "문화예술 플랫폼 '아트스테이지'",
+                                title: "문화예술 플랫폼 &apos;아트스테이지&apos;",
                                 description: "문화예술인을 위한 공연/행사 관리 및 지원사업 데이터 크롤링 플랫폼",
                                 year: "2024"
                               },
